@@ -65,8 +65,8 @@ public class UNF_014_DeleteProductTest {
 		screenShot.captureScreenShot("UNF014_Page3_AfterDeletion");
 
 		// Verifying Success message
-		String Expected = "Success: You have modified products!\n" + "×";
-		String Actual = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
+		String Expected = "Success: You have modified products!×";
+		String Actual = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText().replaceAll("\n", "");
 		System.out.println(Actual);
 		assertEquals(Actual, Expected);
 	}

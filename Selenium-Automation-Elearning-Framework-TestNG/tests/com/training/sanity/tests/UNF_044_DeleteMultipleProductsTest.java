@@ -4,6 +4,7 @@ import static org.testng.Assert.assertEquals;
 
 import java.io.FileInputStream;
 import java.util.Properties;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -12,17 +13,17 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
-import com.training.pom.FilterProductPOM;
+import com.training.pom.DeleteProductPOM;
 import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class UNF_013_FilterProductTest {
+public class UNF_044_DeleteMultipleProductsTest {
 
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
-	private FilterProductPOM filterProductPOM;
+	private DeleteProductPOM deleteProductPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -33,7 +34,7 @@ public class UNF_013_FilterProductTest {
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver);
-		filterProductPOM = new FilterProductPOM(driver);
+		deleteProductPOM = new DeleteProductPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
 		// open the browser
@@ -42,7 +43,7 @@ public class UNF_013_FilterProductTest {
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn();
-		screenShot.captureScreenShot("UNF013_Page1_LoggedIn");
+		screenShot.captureScreenShot("UNF044_Page1_LoggedIn");
 	}
 
 	@AfterTest
@@ -52,22 +53,24 @@ public class UNF_013_FilterProductTest {
 	}
 
 	@Test
-	public void FilterProducts() throws InterruptedException {
-		// Step1:Click on CatLog icon
-		filterProductPOM.clickCalalog();
-		// Step2: Click on Products link
-		filterProductPOM.clickProducts();
-		// Step3: Enter valid credentials in Product Name textbox & Click on Filter
-		// button
-		filterProductPOM.filterProductName();
-		screenShot.captureScreenShot("UNF013_Page2__FilteredProduct");
+	public void DeleteProducts() throws Exception {
+		// Step1: Click on CatLog icon
+		deleteProductPOM.clickCalalog();
+		// Step2:Click on Products link
+		deleteProductPOM.clickProducts();
+		screenShot.captureScreenShot("UNF044_Page2_Products");
+		// Step3:Click on Check box of the products to delete & Click on Delete Icon
+		deleteProductPOM.selectMultipleCheckboxs();
+		// Step4: click on Ok button of pop up window
+		deleteProductPOM.acceptAlert();
+		screenShot.captureScreenShot("UNF044_Page3_AfterDeletion");
 
-		// Verifying Product Name
-		String Expected = "Blazer-BoysNew";
-		String Actual = driver.findElement(By.xpath("//body//tbody//td[3]")).getText();
+		// Verifying Success message
+		String Expected = "Success: You have modified products!×";
+		String Actual = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText().replaceAll("\n",
+				"");
 		System.out.println(Actual);
 		assertEquals(Actual, Expected);
-
 	}
 
 }

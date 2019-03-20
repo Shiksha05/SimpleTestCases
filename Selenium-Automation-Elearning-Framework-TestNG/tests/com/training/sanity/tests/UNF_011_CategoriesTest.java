@@ -5,6 +5,7 @@ import static org.testng.Assert.assertEquals;
 import java.io.FileInputStream;
 import java.util.Properties;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -61,7 +62,12 @@ public class UNF_011_CategoriesTest {
 		// Verifying Page Title
 		String Expected = "Categories";
 		String Actual = driver.getTitle();
-		// System.out.println(Actual);
+		System.out.println("Result by driver.getTitle is : "+ Actual);
+		
+		//Trying to get title by tagname
+		String Actual1 = driver.findElement(By.tagName("title")).getText();
+		System.out.println("Result by by.tagName is : " + Actual1);
+		
 		assertEquals(Actual, Expected);
 
 	}

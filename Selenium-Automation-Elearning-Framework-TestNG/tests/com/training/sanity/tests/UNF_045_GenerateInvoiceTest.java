@@ -12,17 +12,18 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
-import com.training.pom.FilterProductPOM;
+import com.training.pom.CategoriesPOM;
+import com.training.pom.GenerateInvoicePOM;
 import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class UNF_013_FilterProductTest {
+public class UNF_045_GenerateInvoiceTest {
 
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
-	private FilterProductPOM filterProductPOM;
+	private GenerateInvoicePOM generateInvoicePOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -33,7 +34,7 @@ public class UNF_013_FilterProductTest {
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver);
-		filterProductPOM = new FilterProductPOM(driver);
+		generateInvoicePOM = new GenerateInvoicePOM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
 		// open the browser
@@ -42,7 +43,7 @@ public class UNF_013_FilterProductTest {
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn();
-		screenShot.captureScreenShot("UNF013_Page1_LoggedIn");
+		screenShot.captureScreenShot("UNF045_Page1_LoggedIn");
 	}
 
 	@AfterTest
@@ -52,21 +53,21 @@ public class UNF_013_FilterProductTest {
 	}
 
 	@Test
-	public void FilterProducts() throws InterruptedException {
-		// Step1:Click on CatLog icon
-		filterProductPOM.clickCalalog();
-		// Step2: Click on Products link
-		filterProductPOM.clickProducts();
-		// Step3: Enter valid credentials in Product Name textbox & Click on Filter
-		// button
-		filterProductPOM.filterProductName();
-		screenShot.captureScreenShot("UNF013_Page2__FilteredProduct");
+	public void GenerateInvoice() throws Exception {
+		// Click on Cart Icon>>click on Orders link
+		generateInvoicePOM.clickOrders();
+		screenShot.captureScreenShot("UNF045_Page2_SelectOrder");
+		Thread.sleep(2000);
+		// Click on View icon beside the ordered product >>>click on Generate icon of
+		// invoice tab
+		generateInvoicePOM.generateInvoice();
+		screenShot.captureScreenShot("UNF045_Page3_GenerateInvoice");
 
-		// Verifying Product Name
-		String Expected = "Blazer-BoysNew";
-		String Actual = driver.findElement(By.xpath("//body//tbody//td[3]")).getText();
-		System.out.println(Actual);
-		assertEquals(Actual, Expected);
+		// Verifying Invoice Number
+		String ExpectedInvoiceNum = "INV-201";
+		String ActualInvoiceNum = generateInvoicePOM.actualResult();
+		boolean expected = ActualInvoiceNum.contains(ExpectedInvoiceNum);
+		assertEquals(expected, true);
 
 	}
 

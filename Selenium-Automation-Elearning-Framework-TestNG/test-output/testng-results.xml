@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15531" started-at="2019-03-11T10:32:48Z" finished-at="2019-03-11T10:33:03Z">
+  <suite name="Default suite" duration-ms="15062" started-at="2019-03-19T08:38:10Z" finished-at="2019-03-19T08:38:25Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="15531" started-at="2019-03-11T10:32:48Z" finished-at="2019-03-11T10:33:03Z">
-      <class name="com.training.sanity.tests.UNF_013_FilterProductTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.UNF_013_FilterProductTest@5e3a8624]" name="setUp" is-config="true" duration-ms="11961" started-at="2019-03-11T10:32:48Z" finished-at="2019-03-11T10:33:00Z">
+    <test name="Default test" duration-ms="15062" started-at="2019-03-19T08:38:10Z" finished-at="2019-03-19T08:38:25Z">
+      <class name="com.training.sanity.tests.UNF_045_GenerateInvoiceTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.UNF_045_GenerateInvoiceTest@5e3a8624]" name="setUp" is-config="true" duration-ms="9211" started-at="2019-03-19T08:38:10Z" finished-at="2019-03-19T08:38:19Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="FilterProducts()[pri:0, instance:com.training.sanity.tests.UNF_013_FilterProductTest@5e3a8624]" name="FilterProducts" duration-ms="1823" started-at="2019-03-11T10:33:00Z" finished-at="2019-03-11T10:33:01Z">
+        <test-method status="PASS" signature="GenerateInvoice()[pri:0, instance:com.training.sanity.tests.UNF_045_GenerateInvoiceTest@5e3a8624]" name="GenerateInvoice" duration-ms="4069" started-at="2019-03-19T08:38:19Z" finished-at="2019-03-19T08:38:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- FilterProducts -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.UNF_013_FilterProductTest@5e3a8624]" name="tearDown" is-config="true" duration-ms="1734" started-at="2019-03-11T10:33:01Z" finished-at="2019-03-11T10:33:03Z">
+        </test-method> <!-- GenerateInvoice -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.UNF_045_GenerateInvoiceTest@5e3a8624]" name="tearDown" is-config="true" duration-ms="1764" started-at="2019-03-19T08:38:23Z" finished-at="2019-03-19T08:38:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.sanity.tests.UNF_013_FilterProductTest -->
+      </class> <!-- com.training.sanity.tests.UNF_045_GenerateInvoiceTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

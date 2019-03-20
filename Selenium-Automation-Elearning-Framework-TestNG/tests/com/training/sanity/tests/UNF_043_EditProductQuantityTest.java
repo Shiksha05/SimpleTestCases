@@ -12,17 +12,19 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.training.generics.ScreenShot;
+import com.training.pom.AddProductPOM;
+import com.training.pom.EditProductQuantityPOM;
 import com.training.pom.FilterProductPOM;
 import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class UNF_013_FilterProductTest {
+public class UNF_043_EditProductQuantityTest {
 
 	private WebDriver driver;
 	private String baseUrl;
 	private LoginPOM loginPOM;
-	private FilterProductPOM filterProductPOM;
+	private EditProductQuantityPOM editProductQuantityPOM;
 	private static Properties properties;
 	private ScreenShot screenShot;
 
@@ -33,7 +35,7 @@ public class UNF_013_FilterProductTest {
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
 		loginPOM = new LoginPOM(driver);
-		filterProductPOM = new FilterProductPOM(driver);
+		editProductQuantityPOM = new EditProductQuantityPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
 		screenShot = new ScreenShot(driver);
 		// open the browser
@@ -42,7 +44,7 @@ public class UNF_013_FilterProductTest {
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn();
-		screenShot.captureScreenShot("UNF013_Page1_LoggedIn");
+		screenShot.captureScreenShot("UNF043_Page1_LoggedIn");
 	}
 
 	@AfterTest
@@ -52,22 +54,20 @@ public class UNF_013_FilterProductTest {
 	}
 
 	@Test
-	public void FilterProducts() throws InterruptedException {
-		// Step1:Click on CatLog icon
-		filterProductPOM.clickCalalog();
-		// Step2: Click on Products link
-		filterProductPOM.clickProducts();
-		// Step3: Enter valid credentials in Product Name textbox & Click on Filter
-		// button
-		filterProductPOM.filterProductName();
-		screenShot.captureScreenShot("UNF013_Page2__FilteredProduct");
+	public void AddProduct() {
+		// Catalog>>Product>>Click on EditButton
+		editProductQuantityPOM.EditProduct();
+		screenShot.captureScreenShot("UNF043_Page2_EditProduct");
+		// Edit Quantity
+		editProductQuantityPOM.EditQuantity();
+		screenShot.captureScreenShot("UNF043_Page3_QuantityEdited");
 
-		// Verifying Product Name
-		String Expected = "Blazer-BoysNew";
-		String Actual = driver.findElement(By.xpath("//body//tbody//td[3]")).getText();
+		// Verifying Success message
+		String Expected = "Success: You have modified products!";
+		String Actual = editProductQuantityPOM.actualResult();
+
 		System.out.println(Actual);
 		assertEquals(Actual, Expected);
-
 	}
 
 }

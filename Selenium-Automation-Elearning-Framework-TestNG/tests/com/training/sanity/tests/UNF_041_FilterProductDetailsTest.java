@@ -7,7 +7,9 @@ import java.util.Properties;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
@@ -17,7 +19,7 @@ import com.training.pom.LoginPOM;
 import com.training.utility.DriverFactory;
 import com.training.utility.DriverNames;
 
-public class UNF_013_FilterProductTest {
+public class UNF_041_FilterProductDetailsTest {
 
 	private WebDriver driver;
 	private String baseUrl;
@@ -26,7 +28,7 @@ public class UNF_013_FilterProductTest {
 	private static Properties properties;
 	private ScreenShot screenShot;
 
-	@BeforeTest
+	@BeforeClass
 	public void setUp() throws Exception {
 		properties = new Properties();
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
@@ -42,10 +44,11 @@ public class UNF_013_FilterProductTest {
 		loginPOM.sendUserName("admin");
 		loginPOM.sendPassword("admin@123");
 		loginPOM.clickLoginBtn();
-		screenShot.captureScreenShot("UNF013_Page1_LoggedIn");
+		screenShot.captureScreenShot("UNF041_Page1_LoggedIn");
+
 	}
 
-	@AfterTest
+	@AfterClass
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
 		driver.quit();
@@ -60,7 +63,19 @@ public class UNF_013_FilterProductTest {
 		// Step3: Enter valid credentials in Product Name textbox & Click on Filter
 		// button
 		filterProductPOM.filterProductName();
-		screenShot.captureScreenShot("UNF013_Page2__FilteredProduct");
+		screenShot.captureScreenShot("UNF041_Page2__FilteredProduct");
+		// Step4: Enter valid credentials in Price textbox & Click on Filter button
+		filterProductPOM.filterPrice();
+		screenShot.captureScreenShot("UNF041_Page3__filterPrice");
+		// Step5: Select values from Status list box & Click on Filter button
+		filterProductPOM.filterStatus();
+		screenShot.captureScreenShot("UNF041_Page4__filterStatus");
+		// Step6: . Enter Valid credentials in Model textbox & Click on Filter button
+		filterProductPOM.filterModel();
+		screenShot.captureScreenShot("UNF041_Page5__filterModel");
+		// Step7: . Enter Valid credentials in Quantity textbox & Click on Filter button
+		filterProductPOM.filterQuantity();
+		screenShot.captureScreenShot("UNF041_Page5__filterQuantity");
 
 		// Verifying Product Name
 		String Expected = "Blazer-BoysNew";

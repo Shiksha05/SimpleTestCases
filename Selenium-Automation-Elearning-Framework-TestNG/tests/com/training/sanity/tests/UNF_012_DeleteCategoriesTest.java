@@ -68,8 +68,9 @@ public class UNF_012_DeleteCategoriesTest {
 		screenShot.captureScreenShot("UNF012_Page3_AcceptAlert");
 
 		// Verifying Success message
-		String Expected = "Success: You have modified categories!\n" + "×";
-		String Actual = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText();
+		String Expected = "Success: You have modified categories!x";
+		String Actual = driver.findElement(By.xpath("//div[@class='alert alert-success']")).getText().replace("\n", "");
+		
 		System.out.println(Actual);
 		assertEquals(Actual, Expected);
 
