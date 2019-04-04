@@ -17,6 +17,7 @@ public class CategoriesPOM {
 	private WebElement catalog;
 
 	@FindBy(xpath = "//a[contains(text(),'Categories')]")
+	//@FindBy(css="a:contains('Categories')")
 	private WebElement categories;
 
 	public void clickCalalog() {

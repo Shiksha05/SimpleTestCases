@@ -1,25 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15062" started-at="2019-03-19T08:38:10Z" finished-at="2019-03-19T08:38:25Z">
+  <suite name="Default suite" duration-ms="31428" started-at="2019-04-04T07:53:44Z" finished-at="2019-04-04T07:54:16Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="15062" started-at="2019-03-19T08:38:10Z" finished-at="2019-03-19T08:38:25Z">
-      <class name="com.training.sanity.tests.UNF_045_GenerateInvoiceTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.UNF_045_GenerateInvoiceTest@5e3a8624]" name="setUp" is-config="true" duration-ms="9211" started-at="2019-03-19T08:38:10Z" finished-at="2019-03-19T08:38:19Z">
+    <test name="Default test" duration-ms="31428" started-at="2019-04-04T07:53:44Z" finished-at="2019-04-04T07:54:16Z">
+      <class name="com.training.sanity.tests.UNF_074_PlaceOrderTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.training.sanity.tests.UNF_074_PlaceOrderTest@5e3a8624]" name="setUp" is-config="true" duration-ms="7618" started-at="2019-04-04T07:53:44Z" finished-at="2019-04-04T07:53:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="GenerateInvoice()[pri:0, instance:com.training.sanity.tests.UNF_045_GenerateInvoiceTest@5e3a8624]" name="GenerateInvoice" duration-ms="4069" started-at="2019-03-19T08:38:19Z" finished-at="2019-03-19T08:38:23Z">
+        <test-method status="PASS" signature="PlaceOrder()[pri:1, instance:com.training.sanity.tests.UNF_074_PlaceOrderTest@5e3a8624]" name="PlaceOrder" duration-ms="14376" started-at="2019-04-04T07:53:52Z" finished-at="2019-04-04T07:54:06Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- GenerateInvoice -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.UNF_045_GenerateInvoiceTest@5e3a8624]" name="tearDown" is-config="true" duration-ms="1764" started-at="2019-03-19T08:38:23Z" finished-at="2019-03-19T08:38:25Z">
+        </test-method> <!-- PlaceOrder -->
+        <test-method status="PASS" signature="ChangeOrderStatus()[pri:2, instance:com.training.sanity.tests.UNF_074_PlaceOrderTest@5e3a8624]" name="ChangeOrderStatus" duration-ms="5874" started-at="2019-04-04T07:54:06Z" finished-at="2019-04-04T07:54:12Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ChangeOrderStatus -->
+        <test-method status="PASS" signature="ViewOrderHistory()[pri:3, instance:com.training.sanity.tests.UNF_074_PlaceOrderTest@5e3a8624]" name="ViewOrderHistory" duration-ms="1747" started-at="2019-04-04T07:54:12Z" finished-at="2019-04-04T07:54:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- ViewOrderHistory -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.UNF_074_PlaceOrderTest@5e3a8624]" name="tearDown" is-config="true" duration-ms="1776" started-at="2019-04-04T07:54:14Z" finished-at="2019-04-04T07:54:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.sanity.tests.UNF_045_GenerateInvoiceTest -->
+      </class> <!-- com.training.sanity.tests.UNF_074_PlaceOrderTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

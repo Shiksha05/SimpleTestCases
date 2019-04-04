@@ -3,13 +3,14 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.training.sanity.tests.UNF_045_GenerateInvoiceTest">
+      <class name="com.training.sanity.tests.UNF_074_PlaceOrderTest">
         <methods>
-          <include name="GenerateInvoice"/>
           <include name="setUp"/>
+          <include name="PlaceOrder"/>
           <include name="tearDown"/>
+          <include name="ViewOrderHistory"/>
         </methods>
-      </class> <!-- com.training.sanity.tests.UNF_045_GenerateInvoiceTest -->
+      </class> <!-- com.training.sanity.tests.UNF_074_PlaceOrderTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
